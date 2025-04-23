@@ -1,4 +1,5 @@
 Nom & Prénom: Ben Bouazza Mohamed
+
 Navigation bar : ![image](https://github.com/user-attachments/assets/cb20c25a-7186-4e3b-b13d-0112fe9c01b5)
 list of products: ![image](https://github.com/user-attachments/assets/b02a8745-fb92-48d0-9b6c-e23ba9616ef2)
                   ![image](https://github.com/user-attachments/assets/5487fafd-4ea4-4aef-9ffc-e834afdc20c5)
