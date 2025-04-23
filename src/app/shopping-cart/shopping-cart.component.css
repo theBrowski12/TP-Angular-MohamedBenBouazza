@@ -1,0 +1,193 @@
+.shopping-cart {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .empty-cart {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+  }
+  
+  .cart-items {
+    margin-top: 1.5rem;
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .product-info {
+    flex: 1;
+  }
+  
+  .product-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: #333;
+  }
+  
+  .product-info p {
+    margin: 0.25rem 0;
+    color: #666;
+  }
+  
+  .item-actions button {
+    background: #ff5722;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .cart-summary {
+    margin-top: 2rem;
+    text-align: right;
+    padding-top: 1rem;
+    border-top: 2px solid #eee;
+  }
+  
+  .checkout-btn {
+    background: #4285f4;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  .checkout-btn:hover {
+    background: #3367d6;
+  }
+
+
+.product-info img {
+    max-width: 120px;       /* Limits image width */
+    height: auto;           /* Maintains aspect ratio */
+    border-radius: 4px;     /* Softens edges */
+    margin: 0.5rem 0;       /* Adds spacing */
+    object-fit: contain;    /* Ensures full image fits without distortion */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle depth */
+  }
+  
+  /* Improved cart item layout */
+  .cart-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto; /* Image | Info | Actions */
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .cart-item {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    
+    .product-info img {
+      max-width: 100px;
+      margin: 0 auto;
+    }
+    
+    .item-actions {
+      margin-top: 1rem;
+    }
+  }
+  /* Add these to polish the design */
+.shopping-cart {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  
+  .product-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  
+.back-button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.back-button:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+}
+
+.back-button:active {
+    background: #1c5985;
+    transform: scale(0.95);
+}
+  
+  .item-actions button:hover {
+    background: #c0392b;
+  }
+  /* Dans votre fichier CSS */
+.cart-item.low-quantity {
+  background-color: #fff8e6;  /* Fond jaune pâle */
+  animation: pulseWarning 1.5s infinite;
+}
+
+@keyframes pulseWarning {
+  0% { background-color: #fff8e6; }
+  100% { background-color: #ffaeae; }
+}
+
+.low-quantity .quantity {
+  color: #d32f2f;
+  font-weight: bold;
+}
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+  gap: 0.5rem;
+}
+
+.quantity-controls button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #f8f9fa;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quantity-controls button:hover {
+  background: #e9ecef;
+}
+
+.quantity-controls .quantity {
+  min-width: 30px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Style for low quantity warning */
+.low-quantity .quantity {
+  color: #d32f2f;
+  font-weight: bold;
+}
