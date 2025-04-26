@@ -45,4 +45,21 @@ export class ShoppingCart implements OnInit {
       this.removeItem(item);
     }
   }
+  checkOut(cartItems: ShoppingCartItem[]) {
+    if (cartItems.length > 0) {
+      const phoneNumber = '212646564984'; 
+      const productList = cartItems.map(item => `${item.itemProduct.productTitle} (Quantity: ${item.quantity})`).join(', ');
+      const message = `Hello, I would like to buy the following products: ${productList}`;
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;  
+     
+      window.location.href = whatsappUrl;
+  
+    } else {
+      alert('Your cart is empty!');
+    }
+  }
+  
+  
+  
 }

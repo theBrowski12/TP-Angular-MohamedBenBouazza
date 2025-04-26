@@ -29,7 +29,7 @@ export class CartService {
     );
 
     if (itemIndex !== -1) {
-      this.cartItems[itemIndex].quantity -= quantity;
+      this.cartItems[itemIndex].quantity =0;
       
       if (this.cartItems[itemIndex].quantity <= 0) {
         this.cartItems.splice(itemIndex, 1);

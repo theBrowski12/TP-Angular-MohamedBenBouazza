@@ -73,18 +73,7 @@
     margin-top: auto; /* Pushes price to bottom */
   }
   
-  /* Button styling */
-  .product-card button {
-    background-color: #4285f4;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 15px;
-    width: 100%;
-    transition: background-color 0.3s;
-  }
+ 
   
   .product-card button:hover {
     background-color: #3367d6;
@@ -162,4 +151,24 @@
   
   .add-to-cart:active {
     transform: translateY(1px);
+  }
+  #quantity-controls button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+
+  #quantity-controls button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+  }
+
+  #quantity-controls button:active {
+    background-color: #1c5980;
+    transform: scale(0.95);
   }

@@ -16,12 +16,13 @@
         <h3>{{ product.productTitle }}</h3>
         <p class="product-id">ID: {{ product.productID }}</p>
         <p class="product-price">Prix: {{ product.productPrice }} DH</p>
-        <button (click)="adjustQuantity(product.productID, 1)">+</button>
-        <span>{{ quantities[product.productID] }}</span>
-        <button (click)="adjustQuantity(product.productID, -1)">-</button>
 
-        <button (click)="viewDetails(product)">View Details</button>
-        
+        <div id="quantity-controls">
+          <button (click)="adjustQuantity(product.productID, 1)">+</button>
+          <span>{{ quantities[product.productID] }}</span>
+          <button (click)="adjustQuantity(product.productID, -1)">-</button>
+        </div>
+        <button class="add-to-cart" (click)="viewDetails(product)">View Details</button>
         <button class="add-to-cart" (click)="addToCart(product)">
           Add to Cart
         </button>
