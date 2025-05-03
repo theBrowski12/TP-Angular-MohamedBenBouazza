@@ -1,10 +1,14 @@
 <div class="catalog">
     <h2>Product Catalog</h2>
     
-    <div *ngIf="!products || products.length === 0" class="no-products">
+    
+    <div *ngIf="isLoading" class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading products...</p>
+    </div>
+    <div *ngIf="!isLoading && (!products || products.length === 0)" class="no-products">
       No products available
     </div>
-    
     <div class="product-list">
       <div class="product-card" *ngFor="let product of products">
         <div class="product-image">

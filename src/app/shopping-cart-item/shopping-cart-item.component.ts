@@ -1,21 +1,35 @@
-import { Product } from "../product/product.component"
-
+// shopping-cart-item.component.ts
+import { Product } from "../product/product.component";
 
 export class ShoppingCartItem {
-  public get quantity(): number {
-    return this._quantity
-}
-public set quantity(value: number) {
-    this._quantity = value
-}
+  private _quantity: number;
+  public lineTotal: number;
+  public subtotal: number;
 
-constructor(readonly itemProduct: Product, private _quantity: number = 1) {
-  
-}
-get lineTotal(): number {
-    return (Number(this.itemProduct.productPrice) ?? 0) * this.quantity;
+  constructor(
+    public itemProduct: Product,
+    quantity: number = 1
+  ) {
+    this._quantity = quantity;
+    this.lineTotal = this.calculateLineTotal();
+    this.subtotal = this.lineTotal;
   }
-get subtotal(): number {
-    return (Number(this.itemProduct?.productPrice) ?? 0) * this.quantity;
+
+  public get quantity(): number {
+    return this._quantity;
+  }
+
+  public set quantity(value: number) {
+    this._quantity = value;
+    this.updateCalculations();
+  }
+
+  private calculateLineTotal(): number {
+    return (this.itemProduct.productPrice ?? 0) * this._quantity;
+  }
+
+  private updateCalculations(): void {
+    this.lineTotal = this.calculateLineTotal();
+    this.subtotal = this.lineTotal;
   }
 }

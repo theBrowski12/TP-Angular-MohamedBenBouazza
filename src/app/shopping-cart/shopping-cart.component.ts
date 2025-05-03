@@ -22,25 +22,36 @@ export class ShoppingCart implements OnInit {
   }
 
   loadCart(): void {
-    this.cartItems = this.cartService.getCartItems();
-    this.total = this.cartService.getTotal();
+    this.cartService.getCartItems().subscribe(items => {
+      this.cartItems = items;
+    });
+    this.total = this.cartService.calculateTotal(this.cartItems);
   }
 
   removeItem(item: ShoppingCartItem): void {
-    this.cartService.removeFromCart(item.itemProduct.productID);
+    this.cartService.removeFromCart(item.itemProduct.productID).subscribe(items => {
+      this.cartItems = this.cartItems.filter(i => i.itemProduct.productID !== item.itemProduct.productID);}) 
     this.loadCart(); // Refresh the cart display
   }
+
 
   goBack(): void {
     this.router.navigate(['/catalog']);
   }
   increaseQuantity(item: ShoppingCartItem): void {
-    this.cartService.updateQuantity(item.itemProduct.productID, 1);
+  this.cartService.updateQuantity(item.itemProduct.productID, 1).subscribe((item) => { 
+    this.cartItems = this.cartItems.map(i => i.itemProduct.productID === item.itemProduct.productID ? item : i);
+    this.total = this.cartService.calculateTotal(this.cartItems); // Update total after quantity change
+  })
+  this.loadCart(); // Refresh the cart display
   }
 
   decreaseQuantity(item: ShoppingCartItem): void {
     if (item.quantity > 1) {
-      this.cartService.updateQuantity(item.itemProduct.productID, -1);
+      this.cartService.updateQuantity(item.itemProduct.productID, -1).subscribe((item) => {
+        this.cartItems = this.cartItems.map(i => i.itemProduct.productID === item.itemProduct.productID ? item : i);
+        this.total = this.cartService.calculateTotal(this.cartItems); // Update total after quantity change
+      })
     } else {
       this.removeItem(item);
     }
@@ -59,7 +70,5 @@ export class ShoppingCart implements OnInit {
       alert('Your cart is empty!');
     }
   }
-  
-  
-  
+
 }

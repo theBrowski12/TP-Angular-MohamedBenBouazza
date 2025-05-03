@@ -1,61 +1,58 @@
-// cart.service.ts
 import { Injectable } from '@angular/core';
-import { ShoppingCartItem } from '../shopping-cart-item/shopping-cart-item.component';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
 import { Product } from '../product/product.component';
-import { Subject } from 'rxjs';
+import { ShoppingCartItem } from '../shopping-cart-item/shopping-cart-item.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private cartItems: ShoppingCartItem[] = [];
-  private cartUpdated = new Subject<void>(); 
-  addToCart(product: Product, quantity: number = 1): void {
-    const existingItem = this.cartItems.find(
-      item => item.itemProduct.productID === product.productID
-    );
+  private apiUrl = 'http://localhost:3000/api';
 
-    if (existingItem) {
-      existingItem.quantity += quantity;
-    } else {
-      this.cartItems.push(new ShoppingCartItem(product, quantity));
-    }
-    alert(`Added ${quantity} of ${product.productTitle} to cart.`);
-  }
+  constructor(private http: HttpClient) {}
 
-  removeFromCart(productId: string, quantity: number = 1): void {
-    const itemIndex = this.cartItems.findIndex(
-      item => item.itemProduct.productID === productId
-    );
-
-    if (itemIndex !== -1) {
-      this.cartItems[itemIndex].quantity =0;
-      
-      if (this.cartItems[itemIndex].quantity <= 0) {
-        this.cartItems.splice(itemIndex, 1);
-      }
-    }
-  }
-
-  getCartItems(): ShoppingCartItem[] {
-    return this.cartItems;
-  }
-
-  clearCart(): void {
-    this.cartItems = [];
-  }
-
-  getTotal(): number {
-    return this.cartItems.reduce(
-      (total: number, item) => total + (Number(item.itemProduct.productPrice ?? 0) * item.quantity),
-      0
+  // Get all products from API
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.apiUrl}/products`).pipe(
+      map(products => products.map(product => ({
+        productID: product.productID || '', // Ensure required fields are present
+        productPrice: product.productPrice || 0, // Ensure productPrice is a number
+        productTitle: product.productTitle || '', // Ensure required fields are present
+        productImage: product.productImage || '',
+        productDescription: product.productDescription || '',
+        printProduct: product.printProduct || (() => '') // Default function if missing
+      }) as Product)) // Cast to Product to match the interface
     );
   }
-  updateQuantity(productId: string, change: number): void {
-    const item = this.cartItems.find(i => i.itemProduct.productID === productId);
-    if (item) {
-      item.quantity += change;
-      this.cartUpdated.next();
-    }
+
+  // Get current cart items
+  getCartItems(): Observable<ShoppingCartItem[]> {
+    return this.http.get<ShoppingCartItem[]>(`${this.apiUrl}/cart`);
+  }
+
+  // Add item to cart
+  addToCart(item: ShoppingCartItem): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}/cart`, [item]);
+  }
+
+  // Remove item from cart
+  removeFromCart(productId: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/cart/${productId}`);
+  }
+
+  // Update entire cart
+  updateCart(items: ShoppingCartItem[]): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}/cart`, items);
+  }
+
+  // Calculate total
+  calculateTotal(items: ShoppingCartItem[]): number {
+    return items.reduce((total, item) => 
+      total + ((item.itemProduct.productPrice ?? 0) * item.quantity), 0);
+  }
+  updateQuantity(productId: string, change: number): Observable<any> {
+    // This assumes your API supports PATCH requests for quantity updates
+    return this.http.patch(`${this.apiUrl}/${productId}`, { change });
   }
 }
