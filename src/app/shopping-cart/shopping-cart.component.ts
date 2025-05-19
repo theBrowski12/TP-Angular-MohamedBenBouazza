@@ -21,41 +21,49 @@ export class ShoppingCart implements OnInit {
     this.loadCart();
   }
 
-  loadCart(): void {
-    this.cartService.getCartItems().subscribe(items => {
-      this.cartItems = items;
+loadCart(): void {
+  this.cartService.getCartItems().subscribe(items => {
+    this.cartItems = items.map(item => {
+      const cartItem = new ShoppingCartItem(item.itemProduct, item.quantity);
+      return cartItem;
     });
     this.total = this.cartService.calculateTotal(this.cartItems);
-  }
+  });
+}
+
+
 
   removeItem(item: ShoppingCartItem): void {
-    this.cartService.removeFromCart(item.itemProduct.productID).subscribe(items => {
-      this.cartItems = this.cartItems.filter(i => i.itemProduct.productID !== item.itemProduct.productID);}) 
-    this.loadCart(); // Refresh the cart display
-  }
+  this.cartService.getCartItems().subscribe(cart => {
+    const updatedCart = cart.filter(i => i.itemProduct.productID !== item.itemProduct.productID);
+    this.cartService.updateCart(updatedCart).subscribe(() => {
+      this.loadCart();
+    });
+  });
+}
+
+
 
 
   goBack(): void {
     this.router.navigate(['/catalog']);
   }
-  increaseQuantity(item: ShoppingCartItem): void {
-  this.cartService.updateQuantity(item.itemProduct.productID, 1).subscribe((item) => { 
-    this.cartItems = this.cartItems.map(i => i.itemProduct.productID === item.itemProduct.productID ? item : i);
-    this.total = this.cartService.calculateTotal(this.cartItems); // Update total after quantity change
-  })
-  this.loadCart(); // Refresh the cart display
-  }
+increaseQuantity(item: ShoppingCartItem): void {
+  this.cartService.updateQuantity(item.itemProduct.productID, 1).subscribe(() => {
+    this.loadCart(); // Fetch updated cart
+  });
+}
 
-  decreaseQuantity(item: ShoppingCartItem): void {
-    if (item.quantity > 1) {
-      this.cartService.updateQuantity(item.itemProduct.productID, -1).subscribe((item) => {
-        this.cartItems = this.cartItems.map(i => i.itemProduct.productID === item.itemProduct.productID ? item : i);
-        this.total = this.cartService.calculateTotal(this.cartItems); // Update total after quantity change
-      })
-    } else {
-      this.removeItem(item);
-    }
+decreaseQuantity(item: ShoppingCartItem): void {
+  if (item.quantity > 1) {
+    this.cartService.updateQuantity(item.itemProduct.productID, -1).subscribe(() => {
+      this.loadCart(); // Fetch updated cart
+    });
+  } else {
+    this.removeItem(item);
   }
+}
+
   checkOut(cartItems: ShoppingCartItem[]) {
     if (cartItems.length > 0) {
       const phoneNumber = '212646564984'; 

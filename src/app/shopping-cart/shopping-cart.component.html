@@ -1,5 +1,5 @@
 <div class="shopping-cart">
-    <h2>Your Shopping Cart</h2>
+    <h2 i18n>Your Shopping Cart</h2>
     
     <div *ngIf="cartItems.length === 0" class="empty-cart">
       Your cart is empty
@@ -10,24 +10,24 @@
         <div class="product-info">
           <h3>{{ item.itemProduct.productTitle }}</h3>
           <img [src]="item.itemProduct.productImage" alt="{{ item.itemProduct.productTitle }}" loading="lazy" onerror="this.src='/assets/images/placeholder.jpg'">
-          <p>Prix: {{ item.itemProduct.productPrice | number:'1.2-2' }} DH</p>
+          <p i18n>Prix: {{ item.itemProduct.productPrice | number:'1.2-2' }} DH</p>
           <div class="quantity-controls">
             <button (click)="decreaseQuantity(item)">-</button>
             <span class="quantity">{{ item.quantity }}</span>
             <button (click)="increaseQuantity(item)">+</button>
           </div>
-          <span *ngIf="item.quantity < 10" class="warning-icon">⚠️Warning :Quantité faible</span>
-          <p>Subtotal: {{ item.subtotal | number:'1.2-2' }} DH</p>        
+          <span *ngIf="item.quantity < 10" class="warning-icon" i18n>⚠️Warning :Quantité faible</span>
+          <p i18n>Subtotal: {{ item.subtotal | number:'1.2-2' }} DH</p>        
         <div class="item-actions">
-          <button (click)="removeItem(item)">Remove</button>
+          <button (click)="removeItem(item)" i18n>Remove</button>
         </div>
       </div>
     </div>
   
     <div class="cart-summary" *ngIf="cartItems.length > 0">
-      <h3>Total: {{ total | number:'1.2-2' }} DH</h3>
-      <button class="checkout-btn" (click)="checkOut(cartItems)">Proceed to Checkout</button>
+      <h3 i18n>Total: {{ total | number:'1.2-2' }} DH</h3>
+      <button class="checkout-btn" (click)="checkOut(cartItems)" i18n>Proceed to Checkout</button>
     </div>
 
-    <button (click)="goBack()" class="back-button">← Continue Shopping</button>
+    <button (click)="goBack()" class="back-button" i18n>← Continue Shopping</button>
   </div>

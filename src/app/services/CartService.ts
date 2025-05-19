@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, map, switchMap } from 'rxjs';
 import { Product } from '../product/product.component';
 import { ShoppingCartItem } from '../shopping-cart-item/shopping-cart-item.component';
 
@@ -28,13 +28,29 @@ export class CartService {
 
   // Get current cart items
   getCartItems(): Observable<ShoppingCartItem[]> {
-    return this.http.get<ShoppingCartItem[]>(`${this.apiUrl}/cart`);
-  }
+  return this.http.get<any[]>(`${this.apiUrl}/cart`).pipe(
+    map(items => items.map(item => new ShoppingCartItem(item.itemProduct, item.quantity)))
+  );
+}
+
 
   // Add item to cart
   addToCart(item: ShoppingCartItem): Observable<void> {
-    return this.http.post<void>(`${this.apiUrl}/cart`, [item]);
-  }
+  return this.getCartItems().pipe(
+    map(cart => {
+      const existingItem = cart.find(ci => ci.itemProduct.productID === item.itemProduct.productID);
+      if (existingItem) {
+        existingItem.quantity += item.quantity;
+      } else {
+        cart.push(item);
+      }
+      return cart;
+    }),
+    // Send updated cart
+    switchMap(updatedCart => this.updateCart(updatedCart))
+  );
+}
+
 
   // Remove item from cart
   removeFromCart(productId: string): Observable<void> {
@@ -43,8 +59,10 @@ export class CartService {
 
   // Update entire cart
   updateCart(items: ShoppingCartItem[]): Observable<void> {
-    return this.http.post<void>(`${this.apiUrl}/cart`, items);
-  }
+  return this.http.post<void>(`${this.apiUrl}/cart`, items);
+}
+
+
 
   // Calculate total
   calculateTotal(items: ShoppingCartItem[]): number {
@@ -52,7 +70,7 @@ export class CartService {
       total + ((item.itemProduct.productPrice ?? 0) * item.quantity), 0);
   }
   updateQuantity(productId: string, change: number): Observable<any> {
-    // This assumes your API supports PATCH requests for quantity updates
-    return this.http.patch(`${this.apiUrl}/${productId}`, { change });
-  }
+  return this.http.patch(`${this.apiUrl}/cart/${productId}`, { change });
+}
+
 }

@@ -80,3 +80,9 @@ app.get("/api/cart", (req, res) => res.send(cart));
 const port = 3000;
 
 app.listen(port, () => console.log(`API Server listening on port ${port}`));
+
+app.delete('/api/cart/:productId', (req, res) => {
+  const productId = req.params.productId;
+  cart = cart.filter(item => item.itemProduct.productID !== productId);
+  res.sendStatus(200);
+});

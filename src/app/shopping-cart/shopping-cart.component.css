@@ -149,10 +149,7 @@
   animation: pulseWarning 1.5s infinite;
 }
 
-@keyframes pulseWarning {
-  0% { background-color: #fff8e6; }
-  100% { background-color: #ffaeae; }
-}
+
 
 .low-quantity .quantity {
   color: #d32f2f;
