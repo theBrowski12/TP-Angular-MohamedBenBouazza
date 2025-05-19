@@ -1,4 +1,5 @@
 *** Project is in Master Branch ***
+
 🛒 TP Angular - eCommerce App
 👨‍💻 Developed by Mohamed Ben Bouazza
 This is a simple eCommerce web application built with Angular. It allows users to browse products, add items to a shopping cart, manage quantities, and simulate a checkout via WhatsApp integration.
