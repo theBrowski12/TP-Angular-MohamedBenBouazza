@@ -1,102 +1,59 @@
 .container {
-    display: flex;
-    justify-content: space-between;
-    font-size: 24px;
-    margin-bottom: 10px;
-    margin: -3px -8px 0 -8px;
-    padding: 0 8px 5px 8px;
-    border-bottom: 2px solid #818285;
-  }
-  
-  .left {
-    display: flex;
-    align-items: center;
-  }
-  
-  .left * {
-    margin-right: 25px;
-  }
-  
-  .logo {
-    height: 150px;
-  }
-  
-  .cart {
-    display: flex;
-    position: relative;
-  }
-  
-  .cartCount {
-    position: absolute;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    top: -7px;
-    right: -15px;
-    border-radius: 25px;
-    background-color: #f590c4;
-    color: white;
-    font-size: 14px;
-  }
-  
-  .cartCount div {
-    margin: auto;
-  }
-  
-  .right {
-    display: flex;
-    align-items: center;
-    margin-right: 25px;
-  }
-  
-  .right * {
-    margin-left: 25px;
-  }
-  
-  .right img {
-    height: 40px;
-    cursor: pointer;
-  }
-  
-  .sign-out {
-    position: absolute;
-    top: 60px;
-    right: 30px;
-  }
-
-  .a {
-    color: #444;
-    text-decoration: none;
-  }
-  .active {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    margin: -3px -8px 0 -8px;
-    padding-bottom: 5px;
-    padding: 0 8px 5px 8px;
-    color: #444;
-    border-bottom: 2px solid #e51e1e;
-    text-decoration: none;
-  }
-
-button[routerLink] {
-    background-color: transparent;
-    border: none;
-    font-size: 18px;
-    color: #444;
-    cursor: pointer;
-    padding: 10px 15px;
-    transition: color 0.3s, border-bottom 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-button[routerLink]:hover {
-    color: #e51e1e;
+.logo {
+  height: 90px;
+  margin-right: 2rem;
 }
 
-button[routerLink].active {
-    color: #e51e1e;
-    border-bottom: 2px solid #e51e1e;
+.left, .right {
+  display: flex;
+  align-items: center;
+}
+
+.left button,
+.right button {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.left button:hover,
+.right button:hover {
+  color: #007bff;
+}
+
+.left button.active,
+.right button.active {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+}
+
+.right button {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.right button:hover {
+  background-color: #0056b3;
+}
+
+.user-info {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+  margin-right: 1rem;
 }

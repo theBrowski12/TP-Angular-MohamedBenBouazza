@@ -3,11 +3,15 @@ const bodyParser = require("body-parser");
 const cors = require('cors');
 
 const app = express();
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = "secret_key";
 app.use(bodyParser.json());
 app.use(cors());
-
+const { router: authRoutes, authenticateToken } = require('./auth');
 let cart = [];
-
+let users = [];
+app.use('/api/auth', authRoutes);
 app.get("/api/products", (req, res) => {
   const products = [
     {
@@ -78,6 +82,18 @@ app.post("/api/cart", (req, res) => {
 app.get("/api/cart", (req, res) => res.send(cart));
 
 const port = 3000;
+app.get("/api/admin-data", authenticateToken, (req, res) => {
+  if (req.user.role !== 'admin') {
+    return res.status(403).json({ message: "Access denied: Admins only" });
+  }
+
+  res.json({ message: "Bienvenue administrateur", user: req.user });
+});
+
+app.get("/api/user-data", authenticateToken, (req, res) => {
+  res.json({ message: "Bienvenue utilisateur authentifié", user: req.user });
+});
+
 
 app.listen(port, () => console.log(`API Server listening on port ${port}`));
 
