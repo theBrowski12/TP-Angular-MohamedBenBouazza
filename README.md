@@ -34,7 +34,8 @@ Routing: Angular Router
 Nom & Prénom: Ben Bouazza Mohamed
 
 Navigation bar : 
-![image](https://github.com/user-attachments/assets/97e4d846-b70d-48b0-8787-551af40d1e33)
+![image](https://github.com/user-attachments/assets/2f1920be-d673-41b3-bcf5-7ccff68ff9d3)
+
 
 
 list of products: 
