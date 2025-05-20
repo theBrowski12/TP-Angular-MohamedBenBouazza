@@ -36,6 +36,22 @@ Nom & Prénom: Ben Bouazza Mohamed
 Navigation bar : 
 ![image](https://github.com/user-attachments/assets/2f1920be-d673-41b3-bcf5-7ccff68ff9d3)
 
+Login page:
+
+![image](https://github.com/user-attachments/assets/125a723f-265d-4f7b-94a4-cd7f318cb14b)
+
+if Login invalide: 
+
+![image](https://github.com/user-attachments/assets/a1e545b4-fc75-4160-a9cd-0abcd169eac6)
+
+if Login valid: 
+
+![image](https://github.com/user-attachments/assets/eb873f42-e62e-4f6a-8554-de5b84840c56)
+
+
+Register Page:
+
+![image](https://github.com/user-attachments/assets/a174d1bd-13e8-4c99-8744-029a9d6e8d78)
 
 
 list of products: 
