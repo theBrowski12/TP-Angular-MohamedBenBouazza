@@ -7,7 +7,13 @@
   border-bottom: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
-
+.add-product-btn {
+  background: red !important; /* Force visibility */
+  display: block !important;
+}
+.add-product-btn:hover {
+  background-color: #45a049;
+}
 .logo {
   height: 90px;
   margin-right: 2rem;

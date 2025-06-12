@@ -27,4 +27,15 @@ export class ApiService {
   removeFromCart(productId: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/api/cart/${productId}`);
   }
+addProduct(product: Product): Observable<Product> {
+  return this.http.post<Product>(`${this.apiUrl}/api/products`, product);
+}
+
+updateProduct(productId: string, product: Partial<Product>): Observable<Product> {
+  return this.http.put<Product>(`${this.apiUrl}/api/products/${productId}`, product);
+}
+
+deleteProduct(productId: string): Observable<void> {
+  return this.http.delete<void>(`${this.apiUrl}/api/products/${productId}`);
+}
 }

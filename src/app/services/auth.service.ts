@@ -26,14 +26,14 @@ export class AuthService {
 
   setToken(token: string): void {
     localStorage.setItem(this.tokenKey, token);
-
     const payload = JSON.parse(atob(token.split('.')[1]));
     const username = payload.username;
-    const role = payload.role;
+    const role = payload.role.toLowerCase(); // Ensure lowercase
 
     localStorage.setItem(this.usernameKey, username);
     localStorage.setItem(this.roleKey, role);
 
+    // Emit new values
     this.loggedIn.next(true);
     this.currentUser$.next({ username, role });
   }
@@ -62,7 +62,10 @@ export class AuthService {
   isLoggedIn(): Observable<boolean> {
     return this.loggedIn.asObservable();
   }
-
+isAdmin(): boolean {
+    const role = this.getRole();
+    return role ? role.toLowerCase() === 'admin' : false;
+  }
   private hasToken(): boolean {
     return !!localStorage.getItem(this.tokenKey);
   }

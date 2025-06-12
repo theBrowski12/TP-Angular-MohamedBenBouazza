@@ -94,3 +94,6 @@
     background-color: #1c5980;
     transform: scale(0.95);
   }
+  .span {
+    font-weight: bold;
+  }
