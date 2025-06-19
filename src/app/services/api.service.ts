@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../product/product.component';
 import { ShoppingCartItem } from '../shopping-cart-item/shopping-cart-item.component';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { ShoppingCartItem } from '../shopping-cart-item/shopping-cart-item.compo
 export class ApiService {
   private apiUrl = 'http://localhost:3000';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   getProducts(): Observable<any> {
     return this.http.get(`${this.apiUrl}/api/products`);
@@ -27,8 +28,12 @@ export class ApiService {
   removeFromCart(productId: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/api/cart/${productId}`);
   }
-addProduct(product: Product): Observable<Product> {
-  return this.http.post<Product>(`${this.apiUrl}/api/products`, product);
+addProduct(formData: FormData): Observable<any> {
+  return this.http.post(`${this.apiUrl}/api/products`, formData, {  // Add /api
+    headers: {
+      'Authorization': `Bearer ${this.authService.getToken()}`
+    }
+  });
 }
 
 updateProduct(productId: string, product: Partial<Product>): Observable<Product> {
@@ -37,5 +42,8 @@ updateProduct(productId: string, product: Partial<Product>): Observable<Product>
 
 deleteProduct(productId: string): Observable<void> {
   return this.http.delete<void>(`${this.apiUrl}/api/products/${productId}`);
+}
+searchProducts(term: string): Observable<Product[]> {
+  return this.http.get<Product[]>(`${this.apiUrl}/products/search?q=${term}`);
 }
 }

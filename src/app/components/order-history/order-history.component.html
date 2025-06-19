@@ -1,0 +1,51 @@
+<div class="order-history">
+  <h2>Historique des Commandes</h2>
+  
+  <select [(ngModel)]="statusFilter">
+        <option value="ALL">Toutes les commandes</option>
+        <option value="PENDING">En cours</option>
+        <option value="SHIPPED">Expédiées</option>
+        <option value="DELIVERED">Livrées</option>
+  </select>
+
+  <div *ngIf="isLoading" class="loading">Chargement...</div>
+
+  <div *ngIf="!isLoading && filteredOrders.length === 0" class="no-orders">
+    Aucune commande trouvée
+  </div>
+
+  <div class="order-list">
+    <div *ngFor="let order of filteredOrders" class="order-card" [class]="getStatusClass(order.status)">
+      <div class="order-header">
+        <h3>Commande #{{ order.id.slice(0, 8) }}</h3>
+        <span class="status-badge">{{ order.status }}</span>
+        <span class="date">{{ order.createdAt | date:'mediumDate' }}</span>
+      </div>
+
+      <div class="order-details">
+        <div class="items">
+          <div *ngFor="let item of order.items" class="item">
+            <img [src]="item.productImage" [alt]="item.productTitle">
+            <div>
+              <h4>{{ item.productTitle }}</h4>
+              <p>Quantité: {{ item.quantity }}</p>
+              <p>Prix: {{ item.price | currency:'MAD' }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="summary">
+          <p><strong>Total:</strong> {{ order.total | currency:'MAD' }}</p>
+          <p><strong>Adresse:</strong> 
+            {{ order.shippingAddress.street }}, 
+            {{ order.shippingAddress.zipCode }} 
+            {{ order.shippingAddress.city }}
+          </p>
+          <p *ngIf="order.trackingNumber">
+            <strong>Numéro de suivi:</strong> {{ order.trackingNumber }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

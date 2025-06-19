@@ -8,6 +8,7 @@ import { ShoppingCartItem } from '../shopping-cart-item/shopping-cart-item.compo
   providedIn: 'root'
 })
 export class CartService {
+  
   private apiUrl = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) {}
@@ -62,7 +63,9 @@ export class CartService {
   return this.http.post<void>(`${this.apiUrl}/cart`, items);
 }
 
-
+clearCart(): Observable<void> {
+  return this.http.delete<void>(`${this.apiUrl}/cart`);
+}
 
   // Calculate total
   calculateTotal(items: ShoppingCartItem[]): number {

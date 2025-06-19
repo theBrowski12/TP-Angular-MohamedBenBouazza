@@ -49,7 +49,7 @@ export class AuthService {
   getUsername(): string | null {
     return localStorage.getItem(this.usernameKey);
   }
-
+  
   logout(): void {
     localStorage.removeItem(this.tokenKey);
     localStorage.removeItem(this.roleKey);

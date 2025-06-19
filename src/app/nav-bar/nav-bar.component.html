@@ -4,8 +4,17 @@
     <button routerLink="/home" routerLinkActive="active" (click)="navigateToCatalog()" i18n>Home</button>
     <button routerLink="/catalog" routerLinkActive="active" (click)="navigateToCatalog()" i18n>Catalog</button>
     <button routerLink="/cart" routerLinkActive="active" (click)="navigateToCart()" i18n>Cart</button>
+    <button routerLink="/orders" routerLinkActive="active" (click)="navigateToOrderHistory()">Mes Commandes</button>
   </div>
-
+<div class="search-container">
+  <input type="text" 
+         [(ngModel)]="searchQuery" 
+         (keyup.enter)="search()"
+         placeholder="Rechercher un produit...">
+  <button (click)="search()">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
   <div class="right">
     <ng-container *ngIf="authService.currentUser$ | async as user; else guestLinks">
     <span class="user-info">Welcome, {{ user.username }} - {{ user.role }}</span>

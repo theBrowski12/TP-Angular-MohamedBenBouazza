@@ -3,10 +3,10 @@
     
     <div class="product-card">
       <div class="product-image">
-        <img [src]="product?.productImage" 
-             [alt]="product?.productTitle"
-             onerror="this.src='/assets/images/placeholder.jpg'">
-      </div>
+  <img [src]="getProductImageUrl(product?.productImage)" 
+       [alt]="product?.productTitle"
+       (error)="handleImageError($event)">
+</div>
       
       <div class="product-info">
         <h2>{{ product?.productTitle }}</h2>

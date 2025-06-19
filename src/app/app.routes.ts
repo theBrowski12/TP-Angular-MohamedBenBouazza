@@ -5,6 +5,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
+import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 
 export const routes: Routes = [
     { path: 'catalog', component: CatalogComponent },
@@ -13,7 +16,9 @@ export const routes: Routes = [
     { path: 'products/:id', component: ProductDetailsComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'add-product', component: AddProductComponent }, // New route
-
+    { path: 'add-product', component: AddProductComponent }, 
+    { path: 'orders', component: OrderHistoryComponent},
+    { path: 'orders/:id', component: OrderDetailsComponent },
+    { path: 'order-confirmation/:id',component: OrderConfirmationComponent },
     { path: '', redirectTo: '/catalog', pathMatch: 'full' }
 ];

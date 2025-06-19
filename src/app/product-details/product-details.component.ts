@@ -70,4 +70,19 @@ export class ProductDetailsComponent implements OnInit {
   goBack(): void {
     this.router.navigate(['/catalog']);
   }
+  getProductImageUrl(path: string | undefined): string {
+    if (!path) return '/assets/images/placeholder.jpg';
+    
+    // For uploaded products (contains 'products' in path)
+    if (path.includes('/products/')) {
+      return `http://localhost:3000${path}`;
+    }
+    // For static assets
+    return path.startsWith('assets/') ? `/${path}` : path;
+  }
+
+  handleImageError(event: Event) {
+    const img = event.target as HTMLImageElement;
+    img.src = '/assets/images/placeholder.jpg';
+  }
 }

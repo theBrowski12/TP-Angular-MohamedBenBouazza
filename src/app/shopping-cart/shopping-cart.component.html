@@ -9,8 +9,10 @@
       <div class="cart-item" *ngFor="let item of cartItems" [class.low-quantity]="item.quantity < 10">
         <div class="product-info">
           <h3>{{ item.itemProduct.productTitle }}</h3>
-          <img [src]="item.itemProduct.productImage" alt="{{ item.itemProduct.productTitle }}" loading="lazy" onerror="this.src='/assets/images/placeholder.jpg'">
-          <p i18n>Prix: {{ item.itemProduct.productPrice | number:'1.2-2' }} DH</p>
+<img [src]="getProductImageUrl(item.itemProduct.productImage)" 
+     [alt]="item.itemProduct.productTitle"
+     loading="lazy"
+     (error)="handleImageError($event)">          <p i18n>Prix: {{ item.itemProduct.productPrice | number:'1.2-2' }} DH</p>
           <div class="quantity-controls">
             <button (click)="decreaseQuantity(item)">-</button>
             <span class="quantity">{{ item.quantity }}</span>
@@ -23,7 +25,15 @@
         </div>
       </div>
     </div>
-  
+  <div class="shipping-form" *ngIf="cartItems.length > 0">
+  <h3>Adresse de Livraison</h3>
+  <form #addressForm="ngForm">
+    <input type="text" [(ngModel)]="shippingAddress.street" name="street" placeholder="Rue" required>
+    <input type="text" [(ngModel)]="shippingAddress.city" name="city" placeholder="Ville" required>
+    <input type="text" [(ngModel)]="shippingAddress.zipCode" name="zipCode" placeholder="Code Postal" required>
+    <input type="text" [(ngModel)]="shippingAddress.country" name="country" placeholder="Pays" required>
+  </form>
+</div>
     <div class="cart-summary" *ngIf="cartItems.length > 0">
       <h3 i18n>Total: {{ total | number:'1.2-2' }} DH</h3>
       <button class="checkout-btn" (click)="checkOut(cartItems)" i18n>Proceed to Checkout</button>
