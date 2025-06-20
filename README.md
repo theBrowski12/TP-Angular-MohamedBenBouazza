@@ -1,31 +1,34 @@
 *** Project is in Master Branch ***
 
 🛒 TP Angular - eCommerce App
+
 👨‍💻 Developed by Mohamed Ben Bouazza
+
 This is a simple eCommerce web application built with Angular. It allows users to browse products, add items to a shopping cart, manage quantities, and simulate a checkout via WhatsApp integration.
 
-🚀 Features
-📦 Product Catalog
+🚀 Features :
 
-🛒 Add to Cart
-
-🔢 Increase/Decrease Quantity
-
-❌ Remove Items from Cart
-
-💰 Real-time Total Price Calculation
-
-📲 Checkout via WhatsApp Message
-
-🖼️ Product Image Handling (with placeholder fallback)
-
-🌐 Connected to a local JSON-based API
-
-🔢 Add new products (if admin)
-
-📲 suivi des ordres 
-
-🧰 Tech Stack
+  📦 Product Catalog
+  
+  🛒 Add to Cart
+  
+  🔢 Increase/Decrease Quantity
+  
+  ❌ Remove Items from Cart
+  
+  💰 Real-time Total Price Calculation
+  
+  📲 Checkout via WhatsApp Message
+  
+  🖼️ Product Image Handling (with placeholder fallback)
+  
+  🌐 Connected to a local JSON-based API
+  
+  🔢 Add new products (if admin)
+  
+  📲 suivi des ordres 
+  
+ *🧰 Tech Stack*
 
 ✨ Frontend (Angular)
 - **Catalogue Produits** 
