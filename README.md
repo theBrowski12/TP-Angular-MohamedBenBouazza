@@ -21,20 +21,43 @@ This is a simple eCommerce web application built with Angular. It allows users t
 
 🌐 Connected to a local JSON-based API
 
+🔢 Add new products (if admin)
+
+📲 suivi des ordres 
+
 🧰 Tech Stack
-Frontend: Angular
 
-Backend: Node.js + Express (Mock API using in-memory array or JSON server)
+✨ Frontend (Angular)
+- **Catalogue Produits** 
+  - Affichage paginé
+  - Filtres et recherche
+  - Détails produits
+- **Gestion Utilisateurs**
+  - Authentification (Login/Register)
+  - Profil utilisateur
+- **Panier** 
+  - Ajout/Modification/Suppression
+  - Calcul automatique du total
+- **Commandes**
+  - Passer commande
+  - Historique des commandes
+  - Suivi du statut (En cours/Expédiée/Livrée)
 
-Styles: CSS
-
-HTTP: Angular HttpClient
-
-Routing: Angular Router
-Nom & Prénom: Ben Bouazza Mohamed
-
+✨ Backend (Node.js/Express)
+- **API RESTful**
+  - JWT Authentication
+  - Gestion des produits
+  - Gestion des commandes
+  - Upload d'images
+- **Base de Données**
+  - Modèles MongoDB
+  - Relations utilisateurs/commandes
+    
 Navigation bar : 
-![image](https://github.com/user-attachments/assets/2f1920be-d673-41b3-bcf5-7ccff68ff9d3)
+
+![image](https://github.com/user-attachments/assets/a8e1138b-5077-4774-85f3-d2d949137a74)
+
+
 
 Login page:
 
@@ -44,9 +67,10 @@ if Login invalide:
 
 ![image](https://github.com/user-attachments/assets/a1e545b4-fc75-4160-a9cd-0abcd169eac6)
 
-if Login valid: 
+if Login valid as admin: 
 
-![image](https://github.com/user-attachments/assets/eb873f42-e62e-4f6a-8554-de5b84840c56)
+![image](https://github.com/user-attachments/assets/382d6bb2-02a9-4f40-a049-28d61245e5f1)
+
 
 
 Register Page:
@@ -54,23 +78,28 @@ Register Page:
 ![image](https://github.com/user-attachments/assets/a174d1bd-13e8-4c99-8744-029a9d6e8d78)
 
 
-list of products: 
+list of products (catalog component): 
             ![image](https://github.com/user-attachments/assets/2140bb6e-7cba-43f0-afec-7a19a65d2ee0)
 ![image](https://github.com/user-attachments/assets/f7e1aa23-0fc7-497a-8764-d89e997bc12a)
 
 
 
 
-Shopping Cart: 
+Shopping Cart component: 
             ![image](https://github.com/user-attachments/assets/d313f554-130e-49de-b9d5-cd3c674b1104)
             ![image](https://github.com/user-attachments/assets/2865095e-1a2c-42bd-a561-81e4cb94836d)
-
 
 
 
 Product Details: 
             ![image](https://github.com/user-attachments/assets/d6cbb2f2-e16b-4132-a9cc-46ef09587065)
 
+
+Add new Product :
+
+![image](https://github.com/user-attachments/assets/330ba168-1d6e-4779-88f9-acc5a7856ecb)
+
+![image](https://github.com/user-attachments/assets/4d491383-ec08-47f6-891b-8a7f36540a68)
 
 
 
