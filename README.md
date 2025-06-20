@@ -1,6 +1,3 @@
-# TP4MohamedBenBouazza
-
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
 
 🛒 TP Angular - eCommerce App
 
@@ -10,56 +7,54 @@ This is a simple eCommerce web application built with Angular. It allows users t
 
 🚀 Features :
 
-📦 Product Catalog
-
-🛒 Add to Cart
-
-🔢 Increase/Decrease Quantity
-
-❌ Remove Items from Cart
-
-💰 Real-time Total Price Calculation
-
-📲 Checkout via WhatsApp Message
-
-🖼️ Product Image Handling (with placeholder fallback)
-
-🌐 Connected to a local JSON-based API
-
-🔢 Add new products (if admin)
-
-📲 suivi des ordres
-
-🧰 Tech Stack
+  📦 Product Catalog
+  
+  🛒 Add to Cart
+  
+  🔢 Increase/Decrease Quantity
+  
+  ❌ Remove Items from Cart
+  
+  💰 Real-time Total Price Calculation
+  
+  📲 Checkout via WhatsApp Message
+  
+  🖼️ Product Image Handling (with placeholder fallback)
+  
+  🌐 Connected to a local JSON-based API
+  
+  🔢 Add new products (if admin)
+  
+  📲 suivi des ordres 
+  
+ *🧰 Tech Stack*
 
 ✨ Frontend (Angular)
+- **Catalogue Produits** 
+  - Affichage paginé
+  - Filtres et recherche
+  - Détails produits
+- **Gestion Utilisateurs**
+  - Authentification (Login/Register)
+  - Profil utilisateur
+- **Panier** 
+  - Ajout/Modification/Suppression
+  - Calcul automatique du total
+- **Commandes**
+  - Passer commande
+  - Historique des commandes
+  - Suivi du statut (En cours/Expédiée/Livrée)
 
-Catalogue Produits
-Affichage paginé
-Filtres et recherche
-Détails produits
-Gestion Utilisateurs
-Authentification (Login/Register)
-Profil utilisateur
-Panier
-Ajout/Modification/Suppression
-Calcul automatique du total
-Commandes
-Passer commande
-Historique des commandes
-Suivi du statut (En cours/Expédiée/Livrée)
 ✨ Backend (Node.js/Express)
-
-API RESTful
-JWT Authentication
-Gestion des produits
-Gestion des commandes
-Upload d'images
-Base de Données
-Modèles MongoDB
-Relations utilisateurs/commandes
-
-
+- **API RESTful**
+  - JWT Authentication
+  - Gestion des produits
+  - Gestion des commandes
+  - Upload d'images
+- **Base de Données**
+  - Modèles MongoDB
+  - Relations utilisateurs/commandes
+    
 Navigation bar : 
 
 ![image](https://github.com/user-attachments/assets/a8e1138b-5077-4774-85f3-d2d949137a74)
@@ -107,3 +102,4 @@ Add new Product :
 ![image](https://github.com/user-attachments/assets/330ba168-1d6e-4779-88f9-acc5a7856ecb)
 
 ![image](https://github.com/user-attachments/assets/4d491383-ec08-47f6-891b-8a7f36540a68)
+
