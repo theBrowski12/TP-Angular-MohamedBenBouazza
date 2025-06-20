@@ -58,34 +58,52 @@ Upload d'images
 Base de Données
 Modèles MongoDB
 Relations utilisateurs/commandes
-Navigation bar :
 
-image
+
+Navigation bar : 
+
+![image](https://github.com/user-attachments/assets/a8e1138b-5077-4774-85f3-d2d949137a74)
+
+
 
 Login page:
 
-image
+![image](https://github.com/user-attachments/assets/125a723f-265d-4f7b-94a4-cd7f318cb14b)
 
-if Login invalide:
+if Login invalide: 
 
-image
+![image](https://github.com/user-attachments/assets/a1e545b4-fc75-4160-a9cd-0abcd169eac6)
 
-if Login valid as admin:
+if Login valid as admin: 
 
-image
+![image](https://github.com/user-attachments/assets/382d6bb2-02a9-4f40-a049-28d61245e5f1)
+
+
 
 Register Page:
 
-image
+![image](https://github.com/user-attachments/assets/a174d1bd-13e8-4c99-8744-029a9d6e8d78)
 
-list of products (catalog component): image image
 
-Shopping Cart component: image image
+list of products (catalog component): 
+            ![image](https://github.com/user-attachments/assets/2140bb6e-7cba-43f0-afec-7a19a65d2ee0)
+![image](https://github.com/user-attachments/assets/f7e1aa23-0fc7-497a-8764-d89e997bc12a)
 
-Product Details: image
+
+
+
+Shopping Cart component: 
+            ![image](https://github.com/user-attachments/assets/d313f554-130e-49de-b9d5-cd3c674b1104)
+            ![image](https://github.com/user-attachments/assets/2865095e-1a2c-42bd-a561-81e4cb94836d)
+
+
+
+Product Details: 
+            ![image](https://github.com/user-attachments/assets/d6cbb2f2-e16b-4132-a9cc-46ef09587065)
+
 
 Add new Product :
 
-image
+![image](https://github.com/user-attachments/assets/330ba168-1d6e-4779-88f9-acc5a7856ecb)
 
-image
+![image](https://github.com/user-attachments/assets/4d491383-ec08-47f6-891b-8a7f36540a68)
