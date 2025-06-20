@@ -2,58 +2,90 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
 
-## Development server
+🛒 TP Angular - eCommerce App
 
-To start a local development server, run:
+👨‍💻 Developed by Mohamed Ben Bouazza
 
-```bash
-ng serve
-```
+This is a simple eCommerce web application built with Angular. It allows users to browse products, add items to a shopping cart, manage quantities, and simulate a checkout via WhatsApp integration.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+🚀 Features :
 
-## Code scaffolding
+📦 Product Catalog
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+🛒 Add to Cart
 
-```bash
-ng generate component component-name
-```
+🔢 Increase/Decrease Quantity
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+❌ Remove Items from Cart
 
-```bash
-ng generate --help
-```
+💰 Real-time Total Price Calculation
 
-## Building
+📲 Checkout via WhatsApp Message
 
-To build the project run:
+🖼️ Product Image Handling (with placeholder fallback)
 
-```bash
-ng build
-```
+🌐 Connected to a local JSON-based API
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+🔢 Add new products (if admin)
 
-## Running unit tests
+📲 suivi des ordres
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+🧰 Tech Stack
 
-```bash
-ng test
-```
+✨ Frontend (Angular)
 
-## Running end-to-end tests
+Catalogue Produits
+Affichage paginé
+Filtres et recherche
+Détails produits
+Gestion Utilisateurs
+Authentification (Login/Register)
+Profil utilisateur
+Panier
+Ajout/Modification/Suppression
+Calcul automatique du total
+Commandes
+Passer commande
+Historique des commandes
+Suivi du statut (En cours/Expédiée/Livrée)
+✨ Backend (Node.js/Express)
 
-For end-to-end (e2e) testing, run:
+API RESTful
+JWT Authentication
+Gestion des produits
+Gestion des commandes
+Upload d'images
+Base de Données
+Modèles MongoDB
+Relations utilisateurs/commandes
+Navigation bar :
 
-```bash
-ng e2e
-```
+image
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Login page:
 
-## Additional Resources
+image
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+if Login invalide:
+
+image
+
+if Login valid as admin:
+
+image
+
+Register Page:
+
+image
+
+list of products (catalog component): image image
+
+Shopping Cart component: image image
+
+Product Details: image
+
+Add new Product :
+
+image
+
+image
