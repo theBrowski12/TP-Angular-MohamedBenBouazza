@@ -3,10 +3,11 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { map, Observable, Subscription } from 'rxjs';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'navbar',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   standalone: true,
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
